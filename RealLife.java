@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Real {
-    static Real atmOperations = new Real();
+public class RealLife {
+    static RealLife atmOperations = new RealLife();
     static CreationATM[] ATM = {
             new CreationATM(2000,20,40000),
             new CreationATM(500,10,5000),
@@ -82,6 +82,11 @@ public class Real {
         int otherAccNo;
         int accNo,pin;
         System.out.println("Welcome to ABCD Bank ATM");
+        System.out.println("------------------------");
+        System.out.println("Please Enter Account Number: ");
+        int accountNo = scanner.nextInt();
+        System.out.println("Enter Your Four Digit Pin: ");
+        int pinNumber = scanner.nextInt();
         while (condition) {
             System.out.println("____Why do you use our ATM?____");
             System.out.println("1 . Check Balance");
@@ -94,14 +99,12 @@ public class Real {
             int ch = scanner.nextInt();
             switch (ch) {
                 case 1-> {
-                    System.out.println("You have to chosen Balance Checking Option\n");
-                    System.out.println("Please Enter Account Number: ");
-                    accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
-                    pin = scanner.nextInt();
+                    System.out.println("\nYou have to chosen Balance Checking Option\n");
+                    accNo=accountNo;
+                    pin=pinNumber;
                     if (correctPinOrNot(accNo, pin)) {
                         int balance = atmOperations.checkBalance(accNo, pin);
-                        System.out.println("\nYour Current Balance is " + balance);
+                        System.out.println("Your Current Balance is " + balance);
                     }
                     else{
                         System.out.println("*** enter correct PIN or Account Number ***");
@@ -109,10 +112,8 @@ public class Real {
                 }
                 case 2->{
                     System.out.println("You have to chosen Withdrawing Option\n");
-                    System.out.println("Please Enter Account Number: ");
-                    accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
-                    pin = scanner.nextInt();
+                    accNo=accountNo;
+                    pin=pinNumber;
                     System.out.println("Enter Amount of Money to withdraw: ");
                     amount=scanner.nextInt();
                     if(correctPinOrNot(accNo,pin)) {
@@ -170,10 +171,8 @@ public class Real {
                 }
                 case 3->{
                     System.out.println("You have to chosen Transfer Option\n");
-                    System.out.println("Please your Account Number: ");
-                    accNo = scanner.nextInt();
-                    System.out.println("Enter Your Four Digit Pin: ");
-                    pin = scanner.nextInt();
+                    accNo=accountNo;
+                    pin=pinNumber;
                     System.out.println("Enter Amount of Money to transfer: ");
                     amount=scanner.nextInt();
                     if(correctPinOrNot(accNo,pin)){
